@@ -7,23 +7,22 @@ export default {
 	seats: 4,
 	passengers: [],
 	put () {
-		if (this.passengers.length<this.seats) {
+		if (this.passengers.length < this.seats) {
 			this.passengers.push(true);
 		}
 	},
-	land() {
+	land () {
 		this.passengers.pop();
 		if (!this.passengers.length) {
-			this.speed=0;
+			this.speed = 0;
 		}
 	},
-	drive (newSpeed = this.defoultSpeed) {
-		if (this.passengers>0 && newSpeed<this.maxSpeed && newSpeed>0){
+	drive (newSpeed = this.defaultSpeed) {
+		if (this.passengers.length && newSpeed <= this.maxSpeed && newSpeed >= 0) {
 			this.speed = newSpeed;
 		}
-		else (newSpeed>this.maxSpeed) {
+		else if (newSpeed > this.maxSpeed) {
 			this.speed = this.maxSpeed;
 		}
 	}
-		
 };
